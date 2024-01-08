@@ -1,0 +1,63 @@
+<html>
+<body>
+    <div class="login">
+        <h1 class="heading1">Forest Fire  Prediction</h1>
+       <style>
+        h1 {text-align: center;}
+        h3 {text-align:justify}
+        body {
+          background-image: url('https://www.worldforestry.org/wp-content/uploads/2021/02/pexels-deep-rajwar-4621457-1-1536x1025.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+        }
+        </style>
+        <style>
+            .heading1{
+                color: azure;
+            }
+        </style>
+        <!-- Main Input For Receiving Query to our ML -->
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+         <h3><label for="Temperature" class="heading1">Temperature : </label> 
+         <input type="text" name="Temperature" placeholder="Temperature" required="required" /></h3>
+
+         <h3><label for="RH" class="heading1">Relative Humidity : </label> 
+         <input type="text" name="RH" placeholder="RH" required="required" /></h3>
+
+         <h3><label for="Ws" class="heading1">Wind Speed : </label> 
+           <input type="text" name="Ws" placeholder="Ws" required="required" /></h3>
+
+        <h3><label for="Rain" class="heading1">Rain : </label> 
+           <input type="text" name="Rain" placeholder="Rain" required="required" /></h3>
+
+        <h3><label for="FFMC" class="heading1">Fine Fuel Moisture Code : </label> 
+           <input type="text" name="FFMC" placeholder="FFMC" required="required" /></h3>
+
+        <h3><label for="DMC" class="heading1">	Duff Moisture Code : </label>
+           <input type="text" name="DMC" placeholder="DMC" required="required" /></h3>
+
+        <h3><label for="ISI" class="heading1">Initial Spread Index : </label>
+           <input type="text" name="ISI" placeholder="ISI" required="required" /></h3>
+
+        <h3><label for="Classes" class="heading1">Class 1-fire 2-not fire : </label>
+           <input type="text" name="Classes" placeholder="Classes" required="required" /></h3>
+
+        <h3><label for="Region" class="heading1"> 
+            1 : "Bejaia Region Dataset" <br>
+            
+            2 : "Sidi-Bel Abbes Region Dataset" <br>
+            Region : 
+            
+            </label>
+           <input type="text" name="Region" placeholder="Region" required="required" /></h3>
+   
+   
+   
+           <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+       </form>
+    <h2 class="heading1">
+       THE FWI prediction is {{result}}
+    </h2>
+   <body>
+</html>
